@@ -9,7 +9,7 @@ import (
 
 func TestRacer(t *testing.T) {
 	t.Run("compare speed of servers", func(t *testing.T) {
-		slowServer := makeDelayServer(20 * time.Millisecond)
+		slowServer := makeDelayServer(8 * time.Millisecond)
 		fastServer := makeDelayServer(0 * time.Millisecond)
 
 		defer slowServer.Close()
@@ -25,8 +25,8 @@ func TestRacer(t *testing.T) {
 		}
 	})
 	t.Run("returns an eror if a server doesnt respond within 10s", func(t *testing.T) {
-		serverA := makeDelayServer(11 * time.Second)
-		serverB := makeDelayServer(12 * time.Second)
+		serverA := makeDelayServer(11 * time.Millisecond)
+		serverB := makeDelayServer(12 * time.Millisecond)
 
 		defer serverA.Close()
 		defer serverB.Close()

@@ -9,7 +9,7 @@ import (
 )
 
 func Racer(a, b string) (winner string, err error) {
-	ctxWithTimeout, ctxCancelFunc := context.WithTimeout(context.Background(), 10*time.Second)
+	ctxWithTimeout, ctxCancelFunc := context.WithTimeout(context.Background(), 10*time.Millisecond)
 	defer ctxCancelFunc()
 	select {
 	case <-ping(ctxWithTimeout, a):
